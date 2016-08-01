@@ -24,3 +24,17 @@ create table user_roles(
 	userId integer NOT NULL,
 	role varchar(45) NOT NULL
 );
+
+
+
+insert into users(userId,username,password,enabled)
+values(1,'user','12345',true);
+insert into users(userId,username,password,enabled)
+values(2,'admin','12345',true);
+
+
+
+insert into user_roles (user_roleId,userId,role)
+values(1,1,'ROLE_USER');
+insert into user_roles (user_roleId,userId,role)
+values(2,2,'ROLE_ADMIN');
