@@ -1,5 +1,7 @@
 package br.com.thiago.deixando.seguro.config;
 
+import javax.sql.DataSource;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -11,6 +13,11 @@ import org.springframework.security.config.annotation.web.configuration.WebSecur
 @EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
+	
+	@Autowired
+ 	DataSource dataSource;
+	
+	
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 		http.authorizeRequests()
@@ -23,7 +30,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 	
 	@Autowired
 	public void configureGlobal(AuthenticationManagerBuilder auth) throws Exception{
-		auth.inMemoryAuthentication().withUser("user").password("password").roles("USER");
+		auth.jdbcAuthentication().dataSource(dataSource)
+		.usersByUsernameQuery("SELECT username,password,enabled,userId from users where username = ?")
+		.authoritiesByUsernameQuery("SELECT userId, role from user_roles where username = ?");
 	}
 	
 }

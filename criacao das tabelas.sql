@@ -21,6 +21,7 @@ create table users(
 
 create table user_roles(
 	user_roleId integer PRIMARY KEY,
+	username varchar(45) NOT NULL,
 	userId integer NOT NULL,
 	role varchar(45) NOT NULL
 );
@@ -34,7 +35,7 @@ values(2,'admin','12345',true);
 
 
 
-insert into user_roles (user_roleId,userId,role)
-values(1,1,'ROLE_USER');
-insert into user_roles (user_roleId,userId,role)
-values(2,2,'ROLE_ADMIN');
+insert into user_roles (user_roleId,userId,username,role)
+values(1,1,'user','ROLE_USER');
+insert into user_roles (user_roleId,userId,username,role)
+values(2,2,'admin','ROLE_ADMIN');
