@@ -5,8 +5,10 @@
 <!DOCTYPE html>
 <html>
 <head>
-<link href="<c:url value="css/app.css" />" rel="stylesheet"
-	type="text/css">
+<%-- <link href="<c:url value="css/app.css" />" rel="stylesheet" --%>
+<!-- 	type="text/css"> -->
+<link rel="stylesheet" src="/css/app.css">
+<!-- <SCRIPT TYPE="TEXT/JAVASCRIPT" SRC="/CSS/TESTE.JS"> -->
 <title>Spring Security Example - ProgrammingFree</title>
 </head>
 <body class="security-app">

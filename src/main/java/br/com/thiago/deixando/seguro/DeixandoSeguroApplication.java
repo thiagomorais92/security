@@ -1,12 +1,15 @@
 package br.com.thiago.deixando.seguro;
 
 import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
-@ComponentScan
+@ComponentScan(basePackages={"br.com.thiago.deixando"})
+@EnableAutoConfiguration
+
 public class DeixandoSeguroApplication {
 
 	public static void main(String[] args) {
